@@ -3,39 +3,100 @@ import search_icon from "/assets/search_icon.svg";
 import bell_icon from "/assets/bell_icon.svg";
 import profile_img from "/assets/profile_img.png";
 import caret_icon from "/assets/caret_icon.svg";
-export const Navbar = () => {
-  return (
-    <div className="w-full px-12 py-2 flex justify-between fixed top-0 bg-black text-gray-200 z-10">
-      <div className="flex items-center gap-12">
-        <img className="w-22" src={logo} alt="logo" />
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
-        <ul className="flex list-none gap-5 cursor-pointer">
+export const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  return (
+    <nav className="fixed top-0 z-10 w-full bg-black text-gray-200 px-12 py-2">
+      <div className="flex items-center justify-between">
+        {/* Left: Logo and Navigation */}
+        <div className="flex items-center gap-12">
+          <a href="#">
+            <img className="w-22 sm:w-19" src={logo} alt="Netflix" />
+          </a>
+          <ul className="hidden md:flex gap-5 list-none">
+            <li className="cursor-pointer">Home</li>
+            <li className="cursor-pointer">TV Shows</li>
+            <li className="cursor-pointer">Movies</li>
+            <li className="cursor-pointer">New & Popular</li>
+            <li className="cursor-pointer">My List</li>
+            <li className="cursor-pointer">Browse By Languages</li>
+          </ul>
+        </div>
+
+        {/* Right: Icons and Profile */}
+        <div className="hidden md:flex items-center gap-5 cursor-pointer">
+          <button aria-label="Search">
+            <img
+              className="w-5 cursor-pointer"
+              src={search_icon}
+              alt="Search"
+            />
+          </button>
+          <p className="cursor-pointer">Children</p>
+          <button aria-label="Notifications">
+            <img
+              className="w-5 cursor-pointer"
+              src={bell_icon}
+              alt="Notifications"
+            />
+          </button>
+          <div className="flex items-center gap-3">
+            <img
+              className="w-9 rounded-xl"
+              src={profile_img}
+              alt="User profile"
+            />
+            <div className="relative group">
+              <img
+                src={caret_icon}
+                alt="Dropdown caret"
+                className="cursor-pointer"
+              />
+              <p className="absolute left-1/2 top-full mt-1 -translate-x-1/2 transform whitespace-nowrap rounded bg-gray-800 px-2 py-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                Sign out
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* Hamburger Icon */}
+        <button
+          className="md:hidden"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? (
+            <X className="w-5 h-5 sm:w-6 sm:h-6" />
+          ) : (
+            <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
+          )}
+        </button>
+      </div>
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <ul className="md:hidden mt-4 flex flex-col justify-center items-center gap-4 text-sm">
           <li>Home</li>
           <li>TV Shows</li>
           <li>Movies</li>
           <li>New & Popular</li>
           <li>My List</li>
           <li>Browse By Languages</li>
+          <li className="flex items-center gap-2">
+            <img className="w-5" src={search_icon} alt="search" />
+            Search
+          </li>
+          <li>Children</li>
+          <li className="flex items-center gap-2">
+            <img className="w-5" src={bell_icon} alt="bell" />
+            Notifications
+          </li>
+          <li className="flex items-center gap-2">
+            <img className="w-9 rounded-xl" src={profile_img} alt="profile" />
+            <span>Sign out</span>
+          </li>
         </ul>
-      </div>
-      <div className="flex gap-5 items-center cursor-pointer ">
-        <img className="w-5" src={search_icon} alt="search_icon_logo" />
-        <p>Children</p>
-        <img className="w-5" src={bell_icon} alt="bell_icon_logo" />
-        <div className=" flex gap-3">
-          <img
-            className=" rounded-xl w-9 "
-            src={profile_img}
-            alt="profile_icon"
-          />
-          <div className="relative group">
-            <img src={caret_icon} alt="caret_icon" className="cursor-pointer" />
-            <p className="absolute mr-20 transform -translate-x-1/2 mt-1 text-sm text-white bg-gray-800 px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Sign out
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+      )}
+    </nav>
   );
 };

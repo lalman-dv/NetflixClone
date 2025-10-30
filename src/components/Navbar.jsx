@@ -27,7 +27,7 @@ export const Navbar = () => {
         </div>
 
         {/* Right: Icons and Profile */}
-        <div className="hidden md:flex items-center gap-5 cursor-pointer">
+        <div className="hidden md:flex items-center gap-5">
           <button aria-label="Search">
             <img
               className="w-5 cursor-pointer"
@@ -45,7 +45,7 @@ export const Navbar = () => {
           </button>
           <div className="flex items-center gap-3">
             <img
-              className="w-9 rounded-xl"
+              className="w-9 rounded-xl cursor-pointer"
               src={profile_img}
               alt="User profile"
             />

@@ -9,7 +9,8 @@ import { Menu, X } from "lucide-react";
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <nav className="fixed top-0 z-10 w-full bg-black text-gray-200 px-12 py-2">
+    <nav className="fixed top-0 z-10 w-full bg-black
+     text-gray-200 px-12 py-2">
       <div className="flex items-center justify-between">
         {/* Left: Logo and Navigation */}
         <div className="flex items-center gap-12">

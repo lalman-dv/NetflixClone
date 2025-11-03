@@ -17,7 +17,7 @@ export const TitleCards = ({ title, category }) => {
     <div className="mt-12 mb-7">
       <h2 className="mb-2"> {title ? title : "Popular on Netflix"}</h2>
       <div
-        className="flex gap-2.5 overflow-x-auto scrollbar-hide px-4"
+        className="flex gap-2.5 overflow-x-auto scrollbar-hide px-4 scroll-smooth"
         style={{ overflowX: "auto" }}
         ref={cardsRef}
       >

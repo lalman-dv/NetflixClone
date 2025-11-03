@@ -3,16 +3,19 @@ import hero_banner from "/hero_banner.jpg";
 import hero_title from "/hero_title.png";
 import playIcon from "/assets/play_icon.png";
 import infoIcon from "/assets/info_icon.png";
+import { TitleCards } from "../components/Titlecards";
 
 export const Home = () => {
   return (
     <div>
       <Navbar />
       <div className="relative ">
-        <img
-          src={hero_banner}
-          className="w-full  [mask-image:linear-gradient(to_right,transparent,black_75%)] "
-        />
+        <div
+          className="w-full h-screen bg-center bg-cover bg-no-repeat [mask-image:linear-gradient(to_right,transparent,black_75%)]"
+          style={{ backgroundImage: `url(${hero_banner})` }}
+        >
+          {" "}
+        </div>
         <div className="absolute w-full  pl-[6%] bottom-5  ">
           <img src={hero_title} className="w-[90%] max-w-105 mb-8 " />
           <p className="max-w-180 text-xl mb-5">
@@ -26,11 +29,18 @@ export const Home = () => {
               Play
             </button>
             <button className="border-0 outline-0 px-5 py-1 inline-flex items-center gap-2.5 text-xl bg-[#6d6d6eb3] hover:bg-[#6d6d6e66] text-white rounded cursor-pointer">
-              <img src={infoIcon} alt="" />
+              <img src={infoIcon} />
               More Info
             </button>
           </div>
+          <TitleCards />
         </div>
+      </div>
+      <div className="pl-[5%]">
+        <TitleCards title={"Blockbuster Movies"} />
+        <TitleCards title={"Only on Netflix"} />
+        <TitleCards title={"Upcoming Movies"} />
+        <TitleCards title={"Top Picks for You"} />
       </div>
     </div>
   );

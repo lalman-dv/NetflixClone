@@ -9,15 +9,17 @@ import { Menu, X } from "lucide-react";
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <nav className="fixed top-0 z-10 w-full bg-black
-     text-gray-200 px-12 py-2">
+    <nav
+      className="fixed top-0 z-10 w-full bg-black
+     text-gray-200 px-12 py-2"
+    >
       <div className="flex items-center justify-between">
         {/* Left: Logo and Navigation */}
         <div className="flex items-center gap-12">
           <a href="#">
             <img className="w-22 sm:w-19" src={logo} alt="Netflix" />
           </a>
-          <ul className="hidden md:flex gap-5 list-none">
+          <ul className="hidden sm:flex gap-5 list-none text-[16px]">
             <li className="cursor-pointer">Home</li>
             <li className="cursor-pointer">TV Shows</li>
             <li className="cursor-pointer">Movies</li>

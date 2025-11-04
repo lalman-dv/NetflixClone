@@ -38,10 +38,10 @@ export const Home = () => {
         </div>
       </div>
       <div className="pl-[5%]">
-        <TitleCards title={"Blockbuster Movies"} />
-        <TitleCards title={"Only on Netflix"} />
-        <TitleCards title={"Upcoming Movies"} />
-        <TitleCards title={"Top Picks for You"} />
+        <TitleCards title={"Blockbuster Movies"} category={"top_rated"} />
+        <TitleCards title={"Only on Netflix"} category={"popular"} />
+        <TitleCards title={"Upcoming Movies"} category={"upcoming"} />
+        <TitleCards title={"Top Picks for You"} category={"now_playing"} />
       </div>
       <Footer />
     </div>

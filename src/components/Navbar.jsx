@@ -5,6 +5,7 @@ import profile_img from "/src/assets/profile_img.png";
 import caret_icon from "/src/assets/caret_icon.svg";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { logout } from "../firebase";
 
 export const Navbar = () => {
   const navRef = useRef();
@@ -75,7 +76,16 @@ export const Navbar = () => {
                 alt="Dropdown caret"
                 className="cursor-pointer"
               />
-              <p className="absolute left-1/2 top-full mt-1 -translate-x-1/2 transform whitespace-nowrap rounded bg-gray-800 px-2 py-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <p
+                onClick={() => {
+                  logout();
+                }}
+                className="absolute left-1/2 top-full mt-1 -translate-x-1/2
+                transform whitespace-nowrap rounded bg-gray-800 px-2 py-1
+                text-sm text-white opacity-0 transition-opacity duration-300
+                group-hover:opacity-100"
+              >
+                {" "}
                 Sign out
               </p>
             </div>
@@ -112,8 +122,14 @@ export const Navbar = () => {
             Notifications
           </li>
           <li className="flex items-center gap-2">
-            <img className="w-9 rounded-xl" src={profile_img} alt="profile" />
-            <span>Sign out</span>
+            <img className="w-9 rounded" src={profile_img} alt="profile" />
+            <span
+              onClick={() => {
+                logout();
+              }}
+            >
+              Sign out
+            </span>
           </li>
         </ul>
       )}

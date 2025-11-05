@@ -19,6 +19,19 @@ A sleek and responsive movie browsing application inspired by Netflix, built usi
 
 ---
 
+🔐 Authentication
+This project uses Firebase Authentication to manage user login and signup securely.
+✨ Features
+• 	New user signup with email and password
+• 	Existing user login with email and password
+• 	Real-time auth state monitoring using 
+• 	Automatic redirect:
+• 	✅ Logged-in users are redirected to the homepage ()
+• 	🚪 Logged-out users are redirected to the login page ()
+• 	Sign out functionality available in both desktop and mobile nav
+
+
+
 ## 📦 Tech Stack
 
 | Technology   | Purpose                      |
@@ -86,9 +99,11 @@ public/ # Static files
 - ✅ Improved scroll behavior with conditional event listener
 - ✅ Verified full mobile and tablet compatibility
 
-📌 To-Do / Future Enhancements
+⚠️ TMDB API Access Note
 
-- 🔍 Add search functionality
-- 🧑‍💻 Add user login and favorites
-- 🌐 Add internationalization (i18n)
-- 🎨 Improve mobile responsiveness
+✅ Workaround
+• 	Enable a VPN on your computer to ensure successful API requests.
+• 	Once connected, the TMDB site and API should load normally and return expected data.
+🧪 Observed Behavior
+• 	✅ Mobile devices (same network): API works without VPN
+• 	❌ Desktop devices (same network): API fails unless VPN is active

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import background_banner from "/assets/background_banner.jpg";
-import logo from "/assets/logo.png";
+import background_banner from "/src/assets/background_banner.jpg";
+import logo from "/src/assets/logo.png";
 
 export const Login = () => {
   const [signState, setSignState] = useState("Sign In");

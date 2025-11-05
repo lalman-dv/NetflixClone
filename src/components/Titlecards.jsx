@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import cards_data from "/public/assets/cards/Cards_data.js";
 
 export const TitleCards = ({ title, category }) => {
   const [apiData, setApiData] = useState([]);
@@ -21,15 +20,29 @@ export const TitleCards = ({ title, category }) => {
 
   useEffect(() => {
     fetch(
-    `https://api.themoviedb.org/3/movie/${category?category:"now_playing"}?language=en-US&page=1`,
+      `https://api.themoviedb.org/3/movie/${
+        category ? category : "now_playing"
+      }?language=en-US&page=1`,
       options
     )
       .then((res) => res.json())
-      .then((res) => setApiData(res.results))
-      .catch((err) => console.error(err));
-    cardsRef.current.addEventListener("wheel", handleWheel);
-  }, []);
+      .then((res) => {
+        console.log("API response:", res); // Debugging
+        setApiData(res.results || []);
+      })
+      .catch((err) => console.error("API error:", err));
 
+    const currentRef = cardsRef.current;
+    if (currentRef) {
+      currentRef.addEventListener("wheel", handleWheel);
+    }
+
+    return () => {
+      if (currentRef) {
+        currentRef.removeEventListener("wheel", handleWheel);
+      }
+    };
+  }, []);
   return (
     <div className="mt-12 mb-7">
       <h2 className="mb-2"> {title ? title : "Popular on Netflix"}</h2>
@@ -43,7 +56,7 @@ export const TitleCards = ({ title, category }) => {
             <div key={index} className="relative min-w-37">
               <img
                 src={`https://image.tmdb.org/t/p/w500` + card.backdrop_path}
-                className="h-25 round cursor-pointer"
+                className="h-25 rounded cursor-pointer"
               />
               <p className="absolute bottom-2.5 right-2.5 text-white text-sm bg-opacity-50 px-1 rounded">
                 {card.original_title}

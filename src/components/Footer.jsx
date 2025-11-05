@@ -1,7 +1,7 @@
-import youtube_icon from "/assets/youtube_icon.png";
-import twitter_icon from "/assets/twitter_icon.png";
-import facebook_icon from "/assets/facebook_icon.png";
-import instagram_icon from "/assets/instagram_icon.png";
+import youtube_icon from "/src/assets/youtube_icon.png";
+import twitter_icon from "/src/assets/twitter_icon.png";
+import facebook_icon from "/src/assets/facebook_icon.png";
+import instagram_icon from "/src/assets/instagram_icon.png";
 export const Footer = () => {
   return (
     <div className="p-7 max-w-250 mx-auto my-8">

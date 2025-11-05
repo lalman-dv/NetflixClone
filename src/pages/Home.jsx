@@ -1,8 +1,8 @@
 import { Navbar } from "../components/Navbar";
 import hero_banner from "/hero_banner.jpg";
 import hero_title from "/hero_title.png";
-import playIcon from "/assets/play_icon.png";
-import infoIcon from "/assets/info_icon.png";
+import playIcon from "/src/assets/play_icon.png";
+import infoIcon from "/src/assets/info_icon.png";
 import { TitleCards } from "../components/Titlecards";
 import { Footer } from "../components/Footer";
 

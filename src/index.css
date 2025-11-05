@@ -17,3 +17,6 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+.nav-dark{
+  background: #030303d6;
+}

@@ -3,14 +3,31 @@ import search_icon from "/src/assets/search_icon.svg";
 import bell_icon from "/src/assets/bell_icon.svg";
 import profile_img from "/src/assets/profile_img.png";
 import caret_icon from "/src/assets/caret_icon.svg";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 export const Navbar = () => {
+  const navRef = useRef();
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        navRef.current.classList.add("nav-dark");
+      } else {
+        navRef.current.classList.remove("nav-dark");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <nav
-      className="fixed top-0 z-10 w-full bg-black
+      ref={navRef}
+      className="fixed top-0 z-10 w-full
      text-gray-200 px-12 py-2"
     >
       <div className="flex items-center justify-between">
